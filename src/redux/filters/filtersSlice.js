@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice, current } from "@reduxjs/toolkit";
 import axios from "axios";
 
 export const getBrands = createAsyncThunk('filtersSlice/getBrands',async () => {
-  const res = await axios('http://localhost:3000/companies')
+  const res = await axios(`${process.env.PORT}/companies`)
   return res.data
 })
 

@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice, current } from "@reduxjs/toolkit";
 import axios from "axios";
 
 export const getProducts = createAsyncThunk('productsSlice/getProducts', async () => {
-  const res = await axios('http://localhost:3000/products')
+  const res = await axios(`${process.env.PORT}/products`)
   const response = {
     data: res.data,
     header: res.headers
