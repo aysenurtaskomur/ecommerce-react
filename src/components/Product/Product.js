@@ -78,7 +78,6 @@ const AddBtn = styled.button({
 })
 
 const ProductImage = styled.img({
-    backgroundColor:'#C4C4C4',
     width:92,
     height: 92,
     margin:16,

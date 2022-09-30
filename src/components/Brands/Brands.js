@@ -12,7 +12,6 @@ const Brands = () => {
     const searchedBrands = useSelector(state => state.filtersSlice.searchedBrands)
 
     const status = useSelector(state => state.filtersSlice.status)
-    const filteredAndSortedProducts = useSelector(state => state.productsSlice.filteredAndSortedProducts)
 
     useEffect(() => {
         if (status == 'idle') {
