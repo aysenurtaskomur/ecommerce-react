@@ -1,0 +1,49 @@
+.custom-radios {
+  
+  div {
+    display: flex;
+    padding:10
+  }
+
+  input[type="radio"] {
+    display: none;
+
+    + label {
+      display:flex;
+      flex-direction: row;
+      letter-spacing: 0.16px;
+      color: #525252;
+    //   font-family: Heading / H4;
+      font-size: 14px;
+      font-weight: 400;
+    //   line-height: 1;
+
+      span {
+        display: inline-block;
+        width: 22px;
+        height: 22px;
+        margin: -1px 4px 0 0;
+        vertical-align: middle;
+        cursor: pointer;
+        border-radius: 50%;
+        border: 2px solid #DFDEE2;
+        background-repeat: no-repeat;
+        background-position: center;
+        text-align: center;
+        line-height: 100%;
+        img {
+          opacity: 0;
+        //   transition: all .3s ease;
+        }
+      }
+    }
+
+    &:checked + label span img {
+      opacity: 1;
+    }
+    
+    &:checked + label span {
+        border: 2px solid #1EA4CE;
+    }
+  }
+}
