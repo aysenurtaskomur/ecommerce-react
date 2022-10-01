@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice, current } from "@reduxjs/toolkit";
 import axios from "axios";
 
 export const getProducts = createAsyncThunk('productsSlice/getProducts', async () => {
-  const res = await axios('/products')
+  const res = await axios(`${process.env.REACT_APP_BASE_URL}/products`)
   const response = {
     data: res.data,
     header: res.headers
@@ -71,14 +71,9 @@ export const productsSlice = createSlice({
         state.filteredAndSortedProducts = filtered;
     },
     setActiveItemType : (state,action) => {
-      
-      let cloneArr =[...state.filteredAndSortedProducts]
-      state.filteredAndSortedProducts = cloneArr
+      console.log(current(state.itemTypes));
       state.activeItemType= action.payload;
-      
-        state.filteredAndSortedProducts = state.filteredAndSortedProducts.filter(item=>item.itemType.includes(action.payload))
-  
-     
+      state.filteredAndSortedProducts = state.filteredAndSortedProducts.filter(item=>item.itemType.includes(action.payload))
     }
 
   },
