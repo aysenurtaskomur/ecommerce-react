@@ -19,7 +19,7 @@ export const productsSlice = createSlice({
     filteredAndSortedProducts: [],
     currentPage: 1,
     itemTypes: [],
-    activeItemType: ""
+    activeItemType: "",
   },
   reducers: {
     filterBrands: (state, action) => {
@@ -34,7 +34,7 @@ export const productsSlice = createSlice({
         });
         state.filteredAndSortedProducts = x;
       } else {
-        state.filteredAndSortedProducts = state.products;
+        state.filteredAndSortedProducts = state.products.filter(item=>item.itemType == state.activeItemType);
       }
     },
     filterTags: (state, action) => {
@@ -51,7 +51,7 @@ export const productsSlice = createSlice({
         state.filteredAndSortedProducts = x;
       }
       else {
-        state.filteredAndSortedProducts = state.products;
+        state.filteredAndSortedProducts = state.products.filter(item=>item.itemType == state.activeItemType);
       }
     },
     setCurrentPage: (state, action) => {
@@ -71,9 +71,8 @@ export const productsSlice = createSlice({
         state.filteredAndSortedProducts = filtered;
     },
     setActiveItemType : (state,action) => {
-      console.log(current(state.itemTypes));
       state.activeItemType= action.payload;
-      state.filteredAndSortedProducts = state.filteredAndSortedProducts.filter(item=>item.itemType.includes(action.payload))
+      state.filteredAndSortedProducts = state.products.filter(item=>item.itemType.includes(action.payload))
     }
 
   },
@@ -83,7 +82,7 @@ export const productsSlice = createSlice({
     },
     [getProducts.fulfilled]: (state, action) => {
       state.products = action.payload.data;
-      state.filteredAndSortedProducts = action.payload.data;
+      state.filteredAndSortedProducts = action.payload.data.filter(item=>item.itemType == state.activeItemType);
       state.itemTypes = [...new Set(action.payload.data.map(item=>item.itemType))]
       state.activeItemType= state.itemTypes[0]
       state.status = 'succeeded'
