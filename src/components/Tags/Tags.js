@@ -47,7 +47,7 @@ const Tags = () => {
                                     <span>
                                         <img src={Vector} alt="Checked Icon" />
                                     </span>
-                                    {item.name}
+                                    {item.name} ({item.count})
                                 </label>
                             </div>
                         ))}
