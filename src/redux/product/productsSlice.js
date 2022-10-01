@@ -66,7 +66,7 @@ export const productsSlice = createSlice({
         }else if(action.payload.id === 2){
           filtered = state.filteredAndSortedProducts.sort((a,b)=>b.added-a.added)
         }else{
-          filtered = state.filteredAndSortedProducts.sort((a,b)=>b.added-a.added)
+          filtered = state.filteredAndSortedProducts.sort((a,b)=>a.added-b.added)
         }
         state.filteredAndSortedProducts = filtered;
     },
