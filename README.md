@@ -1,7 +1,5 @@
 # https://ecommerce-market-app.herokuapp.com/
 # Usage
-
-Usage:
 ``` 
 #Clone this repository
 git clone https://github.com/aysenurtaskomur/ecommerce-react.git
